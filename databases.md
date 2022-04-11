@@ -80,6 +80,8 @@ Databases are usually separated from the server, and because of that there are d
 
 ![SinglePrimaryReplication](https://user-images.githubusercontent.com/71845375/162701962-6fa154be-c984-43e1-9c23-e25feb522ace.png)
 
+---
+
 - ### Database sharding
 
   Database sharding consists on working with multiple databases at the same level (not master nor slave) that divide the overall data of the system among themselves.
@@ -99,4 +101,5 @@ Databases are usually separated from the server, and because of that there are d
   
 ---
 
-![Database sharding example](../../Downloads/1_WOSlzP8PKH8bWQdmI6JnDw.png)
+![1_WOSlzP8PKH8bWQdmI6JnDw](https://user-images.githubusercontent.com/71845375/162702207-e1db60f9-4dd4-4230-871a-8a131167ea82.png)
+
