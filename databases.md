@@ -78,7 +78,7 @@ Databases are usually separated from the server, and because of that there are d
 
 ---
 
-![Database replication example](../../Downloads/SinglePrimaryReplication.png)
+![SinglePrimaryReplication](https://user-images.githubusercontent.com/71845375/162701962-6fa154be-c984-43e1-9c23-e25feb522ace.png)
 
 - ### Database sharding
 
