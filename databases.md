@@ -47,9 +47,9 @@ Some times a bottleneck appears. A bottleneck produces when multiple processes r
 To avoid them we should:
 - Store in cache data that will rarelly change but will be requested a lot.
 - Try to serve limited information to the users while a lower process finishes serving the whole data requested.
-- Load balancing software as we saw earlier
+- Load balancing software as we saw earlier.
 
-- ### DB querying
+- ### DB querying:
   - Writting data on the database.
   - Reading data form the database.
 
@@ -59,7 +59,7 @@ DB querying it's also a moment when system performance can be lowered and bottle
  
 Databases are usually separated from the server, and because of that there are different methods to avoid them to be problematic:
 
-- ### Database replication
+- ### Database replication:
   
   Database replication consist on having one database as the "*master*" database, and assing to it some other '*slave*' databases.
 
@@ -82,7 +82,7 @@ Databases are usually separated from the server, and because of that there are d
 
 ---
 
-- ### Database sharding
+- ### Database sharding:
 
   Database sharding consists on working with multiple databases at the same level (not master nor slave) that divide the overall data of the system among themselves.
 
@@ -90,14 +90,14 @@ Databases are usually separated from the server, and because of that there are d
 
   An example would be a system where *objects* are saved, and those are divided among 3 distinct databases:
 
-  - Database 1: objects 1 to 1000
-  - Databse 2: objects from 1001 to 2000
-  - Database 3: objects from 2001 to 3000
+  - Database 1: objects 1 to 1000.
+  - Databse 2: objects from 1001 to 2000.
+  - Database 3: objects from 2001 to 3000.
 
   This approach is very simple, and in fact the database sharding method is generally simple, but it also has downsides that aren't that obvious:
 
-  - Queries become a lot more complex
-  - Relate the data between different databases or *Joins* are nearly imposible to do
+  - Queries become a lot more complex.
+  - Relate the data between different databases or *Joins* are nearly imposible to do.
   
 ---
 
