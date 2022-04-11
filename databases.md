@@ -34,18 +34,69 @@ With the giant option, one loss of one giant supposes a bigger loss to the battl
 
 There are many moments along the processing of a request when an standard web application performance can be lowered, let's see some of them:
 
-- Request reception.
-- Collate query results and return them to the server.
-- Render the app (HTML).
+- ### Request reception.
+- ### Collate query results and return them to the server.
+- ### Render the app (HTML).
 
 This three could end in a lowered performance scenario, but generally this can be solved using more than one server, and filtering the incoming requests with a ***load balancer***.
 
 A load balancer is a machine that receives the incoming requests and **has the only function** of; based on a list of available servers and their current workload, distribute those request among those servers.
 
-- DB querying
+Some times a bottleneck appears. A bottleneck produces when multiple processes require the same resources to proceed.
+
+To avoid them we should:
+- Store in cache data that will rarelly change but will be requested a lot.
+- Try to serve limited information to the users while a lower process finishes serving the whole data requested.
+- Load balancing software as we saw earlier
+
+- ### DB querying
   - Writting data on the database.
   - Reading data form the database.
 
+DB querying it's also a moment when system performance can be lowered and bottlenecks produce.
+
 ## Database bottlenecks
  
-# THIS IS WORK IN PROGRESS, I WILL FINISH IT MONDAY'S MORNING
+Databases are usually separated from the server, and because of that there are different methods to avoid them to be problematic:
+
+- ### Database replication
+  
+  Database replication consist on having one database as the "*master*" database, and assing to it some other '*slave*' databases.
+
+  This "*master*" database will replicate / copy all its data on the "*slave*" ones.
+
+  The benefit from doing this shines when there are a lot more of **read** request than **write** request on your database.
+
+  Read requests can be distributed among the replicated databases to free the *master* one of that load, where all **read** requests would be done.
+
+  This however has a obvious downside, and another one not that noticeable:
+
+  - This method doesn't increase the *write* speed.
+  - There is replication lag.
+
+    Replication lag appears when the data being requested (*read request*) has been wrote on the master database too recently, and the system hasn't replicated it yet to the *slave* database where that data is needed.
+
+---
+
+![Database replication example](../../Downloads/SinglePrimaryReplication.png)
+
+- ### Database sharding
+
+  Database sharding consists on working with multiple databases at the same level (not master nor slave) that divide the overall data of the system among themselves.
+
+  This is a good method when rather than having too much requests, the system works with too much data.
+
+  An example would be a system where *objects* are saved, and those are divided among 3 distinct databases:
+
+  - Database 1: objects 1 to 1000
+  - Databse 2: objects from 1001 to 2000
+  - Database 3: objects from 2001 to 3000
+
+  This approach is very simple, and in fact the database sharding method is generally simple, but it also has downsides that aren't that obvious:
+
+  - Queries become a lot more complex
+  - Relate the data between different databases or *Joins* are nearly imposible to do
+  
+---
+
+![Database sharding example](../../Downloads/1_WOSlzP8PKH8bWQdmI6JnDw.png)
